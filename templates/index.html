@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }}
+    Bienvenido!
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido!!</h1>
+
+    <p>Bienvenido a la pagina principal, sobre mi avance y proyectos desarrollados en todos los lenguajes que e aprendido a lo largo de mi carrera. acontinuacion, encontraras una seria de links, que te dirigiran a cada uno de los proyectos realizados, y sientete libre de interactuar libremente por todos ellos.</p>
+    <p>Agradezco de antemano tu tiempo, para ver cada uno de los proyectos y la interaccion que tendras con ellos. </p>
+    <ul>
+        <li><a href="{{ url_for('obtener_pokemons') }}">Ir a la Pokedex</a>
+        <li><a href="">Ir al Blog</a></li></li>
+        <li><a href="">Ir a la Encuesta</a></li>
+    </ul>
+
+    <p><strong>Ten un excelente dia y gracias por tu visita!</strong></p>
+    
+{% endblock %}

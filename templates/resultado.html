@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        {{ super() }}
+        Resultado
+    {% endblock %}
+
+    {% block content %}
+        <h1>Bienvenido!!</h1>
+        <h2>Este es el Pokemon del ID!</h2>
+        <li><a href="{{ url_for('index' )}}">Ir a inicio</a></li>
+        <li><a href="{{ url_for('obtener_pokemons') }}">Buscar Otro Pokemon</a></li>
+
+        {% for x in pokemon_info %}
+        <ul>
+            <li>{{ x }}</li>
+        </ul>
+        {% endfor %}
+        <img src="{{ url_for('static', filename = img_poke) }}" alt="">
+    {% endblock %}

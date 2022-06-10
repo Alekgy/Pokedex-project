@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        {{ super() }}
+        ERROR!
+    {% endblock %}
+
+    {% block content %}
+        <h1>Lo Sentimos!!</h1>
+        <h2>Por Favor Elige Una Opcion Valida!</h2>
+        <li><a href="{{ url_for('index' )}}">Ir a inicio</a></li>
+        <li><a href="{{ url_for('obtener_pokemons') }}">Buscar Otro Pokemon</a></li>
+    {% endblock %}
