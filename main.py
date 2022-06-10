@@ -3,7 +3,7 @@ from importlib.resources import open_binary
 from flask import Flask, render_template, request, url_for, redirect
 import json
 
-from pokedex import UserForm, cargar_datos, pokemon_elegido
+from pokedex import UserForm, pokemon_elegido
 
 app = Flask(__name__)
 ruta = "./datos/pokedex.json"
