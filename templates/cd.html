@@ -1,0 +1,17 @@
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Pokedex</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                {% for pokemon in pokemons %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('pokemon', pokemon_id=pokemon.id) }}">
+                            {{ pokemon.name }}
+                        </a>
+                    </li>
+                {% endfor %}

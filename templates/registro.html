@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }}
+    Blog
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido!!!</h1>
+    <h2>Registro</h2>
+
+    <p>A continuacion podras elegir tu nombre de usuario y password para ingresar al blog!</p>
+    
+    <li><a href="{{ url_for('index') }}">Ir a inicio</a></li>
+    <p>
+        <div class="container">
+            <form action="{{ url_for('registro') }}" method='post'>
+                {{ sign_up.new_user.label}}
+                {{ sign_up.new_user }}
+                {{ sign_up.new_password.label}}
+                {{ sign_up.new_password }}
+                {{ sign_up.submit }}
+            </form>
+        </div>
+        </p>
+    
+
+{% endblock %}

@@ -24,3 +24,10 @@ def pokemon_elegido(id_pokemon):
         elif row["name"] == "english":
             return row
 
+def pokemon_elegido(id_pokemon):
+    dict = "./datos/pokedex.json"
+    pokemon = cargar_datos(dict)
+    for q, row in pokemon.iterrows():
+        if row["id"] == id_pokemon:
+            return row ["id"], row ["name"], row ["type"], row ["base"]
+

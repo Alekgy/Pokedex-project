@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }}
+    Blog
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido!!!</h1>
+    <h2>Esta es tu Blog de Confianza!</h2>
+
+    <p>A continuacion podras Registrarse e iniciar sesion en tu blog de Confianza,
+        aqui podras publicar tus articulos y comentar sobre ellos.</p>
+    
+    <li><a href="{{ url_for('index') }}">Ir a inicio</a></li>
+    
+    <p>
+        <div class="container">
+            <form action="{{ url_for('obtener_pokemons') }}" method='post'>
+                {{ sign_in.user.label}}
+                {{ sign_in.user }}
+                {{ sign_in.password.label}}
+                {{ sign_in.password }}
+                {{ sign_in.submit }}
+            </form>
+        </div>
+        </p>
+        <li><a href="{{ url_for('registro') }}">Registrarse</a></li>
+    
+
+{% endblock %}

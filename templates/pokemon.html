@@ -5,14 +5,13 @@
     Pokedex
 {% endblock %}
 
-
 {% block content %}
     <h1>Bienvenido!!!</h1>
     <h2>Esta es la Pokedex!</h2>
 
     <p>A continuacion podras elegir un pokemon por su id del 1 al 809.</p>
     
-    <li><a href="{{ url_for('index' )}}">Ir a inicio</a></li>
+    <li><a href="{{ url_for('index') }}">Ir a inicio</a></li>
     <p>
     <div class="container">
         <form action="{{ url_for('obtener_pokemons') }}" method='post'>
