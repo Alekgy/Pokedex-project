@@ -12,7 +12,7 @@ app = Flask(__name__)
 ruta = "./datos/pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
     return render_template("index.html")
 
