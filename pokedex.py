@@ -1,7 +1,4 @@
-from email.mime import image
-from flask import Flask, render_template, request
 import pandas as pd
-import json
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField, SubmitField
 

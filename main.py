@@ -1,14 +1,9 @@
-from email.mime import image
-from importlib.resources import open_binary
 from flask import Flask, flash, render_template, request, url_for, redirect
-import json
-
-from numpy import set_string_function
 
 from pokedex import UserForm, pokemon_elegido
 from blog import NewUser, LoginUserForm
 
-port = int(os.environ.get('PORT', 5000))
+
 app = Flask(__name__)
 ruta = "./datos/pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
