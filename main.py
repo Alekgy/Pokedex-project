@@ -1,9 +1,10 @@
 from flask import Flask, flash, render_template, request, url_for, redirect
-
 from pokedex import UserForm, pokemon_elegido
 from blog import NewUser, LoginUserForm
+import os
 
 
+port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
 ruta = "./datos/pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
