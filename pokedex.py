@@ -12,14 +12,6 @@ def cargar_datos(ruta):
         resultado = pd.read_json(ruta)
     return resultado
 
-def pokemon_elegido(id_pokemon):
-    dict = "./datos/pokedex.json"
-    pokemon = cargar_datos(dict)
-    for i, row in pokemon.iterrows():
-        if row["id"] == id_pokemon:
-            return row
-        elif row["name"] == "english":
-            return row
 
 def pokemon_elegido(id_pokemon):
     dict = "./datos/pokedex.json"
