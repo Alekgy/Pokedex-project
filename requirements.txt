@@ -1,5 +1,4 @@
 
-pythom 3.8.10
 Flask
 Flask-Bootstrap
 Flask-WTF
