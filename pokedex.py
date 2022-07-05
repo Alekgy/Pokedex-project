@@ -1,7 +1,6 @@
 import pandas as pd
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField, SubmitField
-from main import ruta
 
 
 class UserForm(FlaskForm):
@@ -15,7 +14,7 @@ def cargar_datos(ruta):
 
 
 def pokemon_elegido(id_pokemon):
-    dict = "./datos/pokedex.json"
+    dict = "/app/datos/pokedex.json"
     pokemon = cargar_datos(dict)
     for q, row in pokemon.iterrows():
         if row["id"] == id_pokemon:
