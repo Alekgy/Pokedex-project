@@ -3,12 +3,9 @@ from pokedex import UserForm, pokemon_elegido
 from blog import NewUser, LoginUserForm
 import json
 
-from os.path import join, dirname, realpath
-
-UPLOADS_PATH = join(dirname(realpath(__file__)), './datos/pokedex.json')
 
 app = Flask(__name__)
-ruta = "./datos/pokedex.json"
+ruta = "pokedex/datos/pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
 
 @app.route('/')

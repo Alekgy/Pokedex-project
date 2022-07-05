@@ -14,7 +14,7 @@ def cargar_datos(ruta):
 
 
 def pokemon_elegido(id_pokemon):
-    dict = "./datos/pokedex.json"
+    dict = "pokedex/datos/pokedex.json"
     pokemon = cargar_datos(dict)
     for q, row in pokemon.iterrows():
         if row["id"] == id_pokemon:
