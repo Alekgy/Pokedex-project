@@ -26,8 +26,6 @@ def obtener_pokemons():
 
 @app.route('/pokemon/resultado/<int:id_pokemon>', methods=['GET', 'POST'])
 def resultado(id_pokemon):
-    if len(str(id_pokemon)) == None:
-        raise ValueError("No se ha introducido ningun ID")
     try:
         assert int(id_pokemon), "El id debe ser un número entero"
         assert id_pokemon > 0, "El id debe ser mayor a 0"
