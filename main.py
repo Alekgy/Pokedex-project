@@ -5,7 +5,7 @@ import json
 
 
 app = Flask(__name__)
-ruta = "../datos/pokedex.json"
+ruta = "./pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
 
 @app.route('/')
