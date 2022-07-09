@@ -1,13 +1,17 @@
 from flask import Flask
-from flask_wtf import FlaskForm
-from wtforms.fields import StringField, SubmitField, PasswordField
 
-class NewUser(FlaskForm):
-    new_user = StringField('Registrar Usuario.')
-    new_password = PasswordField('Password.')
-    submit = SubmitField('Registrar.')
+from datetime import datetime
 
-class LoginUserForm(FlaskForm):
-    user = StringField('Usuario.')
-    password = PasswordField('Password')
-    submit = SubmitField('Ingresar.')
+from sqlalchemy import null
+
+
+def create_post_model(db):
+    class Post(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        title = db.Column(db.String, nullable=False)
+        date = db.Column(db.DateTime, default=datetime.now)
+        text = db.Column(db.String, nullable=False)
+    return Post
+
+
+

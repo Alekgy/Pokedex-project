@@ -5,4 +5,135 @@ body {
     background-repeat: none;
     color: #000000;
     background-color: #8a8a8a;
+    margin: 0px;
+}
+
+h1{
+	font-size: 1.5rem;
+}
+ul li, p{
+	font-size: 1rem;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+.main-head{
+	background: #131c27;
+	color: white;
+}
+nav{
+	min-height: 10vh;
+	display: flex;
+	width: 80%;
+	margin: auto;
+	padding: 1rem;
+	align-items: center;
+}
+
+nav ul{
+	display: flex;
+	flex: 1 1 10rem;
+	justify-content: space-around;
+	align-items: center;
+	list-style: none;
+}
+
+#logo{
+	flex: 3 1 20rem;
+    text-align: left;
+}
+.post_container{
+	margin: 2vh auto;
+	width: 50%;
+	border: 2px solid black;
+	border-radius: 10px;
+    box-sizing: content-box;
+}
+.post-title{
+	font-size: 1.3rem;
+	margin: 0.4rem auto;
+	padding: 6px;
+
+}
+.date{
+	font-size: 1rem;
+	padding-top:  0;
+	color: 383636;
+    text-align: center;
+}   
+
+.text{
+    margin: 0.4rem 3px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+    text-align: center;
+
+}
+
+
+.delete-button{
+	width: 60%;
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+/* FORM */
+
+
+/* Start form */
+
+
+h2{
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 5vh;
+}
+
+form{
+	margin: 5vh auto;
+	width: 320px;
+	color: steelblue;
+
+}
+
+input{
+	padding: 10px;
+	font-size: 1rem;
+}
+
+.login-form input{
+	display: block;
+	margin-top: 25px;
+	width: 100%;
+	border: 2px solid #131c27;
+	border-radius: 5px;
+}
+.login-form input[type="submit"]{
+
+	border: none;
+	background-color: #131c27;
+	color: white;
+	font-size: 1rem;
+}
+
+li{
+
+	margin-top: 0;
+	margin-left: 15px;
+	color: red;
+}
+
+textarea{
+	display: block;
+	margin-top: 25px;
+	border: 2px solid #131c27;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 1rem;
+	font-family: sans-serif;
+
 }

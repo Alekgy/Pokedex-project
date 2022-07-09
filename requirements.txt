@@ -17,3 +17,5 @@ visitor
 Werkzeug
 WTForms
 zipp
+SQLAlchemy
+flask-SQLAlchemy

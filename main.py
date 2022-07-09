@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, url_for, redirect
 from pokedex import UserForm, pokemon_elegido
-from blog import NewUser, LoginUserForm
 import json
+from blog import create_post_model
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 ruta = "./pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://///home/alejandro/ALEJANDRO/Mi_Proyecto/Pokedex/blog.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+Post = create_post_model(db)
 
 @app.route('/')
 def index():
@@ -43,12 +49,31 @@ def resultado(id_pokemon):
     img_poke = f"images/{id_pokemon}.png"
     return render_template('resultado.html', img_poke=img_poke, pokemon_info=pokemon_info)
 
-@app.route('/blog/', methods=['GET', 'POST'])
+@app.route('/blog')
 def blog():
-    sign_in = LoginUserForm()
-    return render_template('blog.html', sign_in=sign_in)
+    posts = Post.query.order_by(Post.date.desc()).all()
+    print(posts)
+    return render_template('blog.html', posts=posts)
 
-@app.route('/blog/registro/', methods=['GET', 'POST'])
-def registro():
-    sign_up = NewUser() 
-    return render_template('registro.html', sign_up=sign_up)
+@app.route('/blog/add')
+def add():
+    return render_template('add.html')
+
+@app.route('/blog/create', methods=['POST'])
+def create_post():
+        title = request.form.get('titulo')
+        text = request.form.get('texto')
+        post = Post(title=title, text=text)
+        db.session.add(post)
+        db.session.commit()
+        return redirect('/blog')
+
+
+@app.route('/blog/delete', methods=['POST'])
+def delete():
+    post_id = request.form.get('post_id')
+    post = db.session.query(Post).filter(Post.id==post_id).first()
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/blog')
+
