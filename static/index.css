@@ -96,7 +96,7 @@ h2{
 form{
 	margin: 5vh auto;
 	width: 320px;
-	color: steelblue;
+	color: black;
 
 }
 
@@ -124,7 +124,7 @@ li{
 
 	margin-top: 0;
 	margin-left: 15px;
-	color: red;
+	color: black;
 }
 
 textarea{

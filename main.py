@@ -3,14 +3,17 @@ from pokedex import UserForm, pokemon_elegido
 import json
 from blog import create_post_model
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 
 
 app = Flask(__name__)
 ruta = "./pokedex.json"
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://///home/alejandro/ALEJANDRO/Mi_Proyecto/Pokedex/blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://exjvvilnwxwygr:cda38de61a463a46c13cbbe9214e21a8efa168b8e8ee939824b5ef94d917a1bc@ec2-54-157-16-196.compute-1.amazonaws.com:5432/d87bbc07c3e9t8'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 Post = create_post_model(db)
 
