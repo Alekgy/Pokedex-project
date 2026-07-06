@@ -41,10 +41,10 @@ El proyecto está configurado para producción y optimizado para la arquitectura
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/tu-usuario/pokedex-flask.git](https://github.com/tu-usuario/pokedex-flask.git)
+   git clone https://github.com/tu-usuario/pokedex-flask.git
    cd pokedex-flask
    ```
-Crear y activar entorno virtual:
+2. **Crear y activar entorno virtual:**
 
 ```bash
 python -m venv venv
@@ -53,14 +53,14 @@ venv\Scripts\activate
 # En Linux/Mac:
 source venv/bin/activate
 ```
-Instalar dependencias:
+3. **Instalar dependencias:**
 
 ```bash
 pip install -r requirements.txt
 ```
-Ejecutar servidor de desarrollo:
+4. **Ejecutar servidor de desarrollo:**
 
 ```bash
 flask --app main run --debug
 ```
-Abrir en el navegador: http://127.0.0.1:5000/
+5. **Abrir en el navegador:** http://127.0.0.1:5000/
