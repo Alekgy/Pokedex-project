@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }} Pokémon Tipo {{ tipo }}
+{% endblock %}
+
+{% block content %}
+    <div class="type-page-wrapper {{ tipo_clase }}">
+        
+        <header class="main-head">
+            <nav>
+                <h1 id="logo">Pokedex</h1>
+                <ul>
+                    <li><a href="{{ url_for('obtener_pokemons') }}">Volver a Inicio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h2 class="dynamic-title">Pokémon de Tipo: {{ tipo }}</h2>
+            <p class="dynamic-subtitle">Selecciona un Pokémon para ver sus estadísticas base:</p>
+
+            <div class="pokemon-grid">
+                {% for poke in pokemons %}
+                    <div class="pokemon-icon-card">
+                        <a href="{{ url_for('resultado', id_pokemon=poke.id) }}">
+                            <div class="image-wrapper">
+                                <img src="{{ url_for('static', filename=poke.img) }}" alt="{{ poke.name }}">
+                            </div>
+                            <div class="poke-info">
+                                <span class="poke-number">#{{ "%03d" | format(poke.id) }}</span>
+                                <span class="poke-name">{{ poke.name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

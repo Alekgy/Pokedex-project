@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }} Pokedex - {{ pokemon_info['name']['english'] }}
+{% endblock %}
+
+{% block content %}
+    {% set colores = {
+        'grass': '#78C850', 'fire': '#F08030', 'water': '#6890F0', 'bug': '#A8B820',
+        'normal': '#A8A878', 'poison': '#A040A0', 'electric': '#F8D030', 'ground': '#E0C068',
+        'fairy': '#EE99AC', 'fighting': '#C03028', 'psychic': '#F85888', 'rock': '#B8A038',
+        'ghost': '#705898', 'ice': '#98D8D8', 'dragon': '#7038F8', 'flying': '#A890F0',
+        'steel': '#B8B8D0', 'dark': '#705746'
+    } %}
+
+    {% if tipos_clase | length > 1 %}
+        {% set color1 = colores[tipos_clase[0]] if tipos_clase[0] in colores else '#f6f8fc' %}
+        {% set color2 = colores[tipos_clase[1]] if tipos_clase[1] in colores else '#f6f8fc' %}
+        {# Cambiado de 'color1 50%, color2 50%' a una transición natural de 0% a 100% #}
+        {% set estilo_fondo = "background: linear-gradient(135deg, " ~ color1 ~ " 0%, " ~ color2 ~ " 100%);" %}
+    {% else %}
+        {% set color1 = colores[tipos_clase[0]] if tipos_clase[0] in colores else '#f6f8fc' %}
+        {% set estilo_fondo = "background: " ~ color1 ~ ";" %}
+    {% endif %}
+
+    <div class="detail-page-wrapper" style="{{ estilo_fondo }}">
+        
+        <header class="main-head">
+            <nav>
+                <h1 id="logo">Pokedex</h1>
+                <ul>
+                    <li><a href="{{ url_for('obtener_pokemons') }}">Buscar Otro</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="detail-main-container">
+            <div class="pokemon-card-container">
+                <h2>#{{ "%03d" | format(pokemon_info['id']) }} - {{ pokemon_info['name']['english'] }}</h2>
+                <p style="color: var(--text-muted); margin-top: -10px;">
+                    <em>({{ pokemon_info['name']['french'] }} / {{ pokemon_info['name']['japanese'] }})</em>
+                </p>
+
+                <div class="pokemon-image">
+                    <img src="{{ url_for('static', filename=img_poke) }}" alt="{{ pokemon_info['name']['english'] }}">
+                </div>
+
+                <div style="margin: 15px 0;">
+                    {% for tipo in pokemon_info['type'] %}
+                        <span class="type-badge {{ tipo | lower }}">{{ tipo }}</span>
+                    {% endfor %}
+                </div>
+
+                <h3>Estadísticas Base:</h3>
+                <ul class="stats-list">
+                    <li><span><strong>HP:</strong></span> <span>{{ pokemon_info['base']['HP'] }}</span></li>
+                    <li><span><strong>Ataque:</strong></span> <span>{{ pokemon_info['base']['Attack'] }}</span></li>
+                    <li><span><strong>Defensa:</strong></span> <span>{{ pokemon_info['base']['Defense'] }}</span></li>
+                    <li><span><strong>Sp. Attack:</strong></span> <span>{{ pokemon_info['base']['Sp. Attack'] }}</span></li>
+                    <li><span><strong>Sp. Defense:</strong></span> <span>{{ pokemon_info['base']['Sp. Defense'] }}</span></li>
+                    <li><span><strong>Velocidad:</strong></span> <span>{{ pokemon_info['base']['Speed'] }}</span></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}
